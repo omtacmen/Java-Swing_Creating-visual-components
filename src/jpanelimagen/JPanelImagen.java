@@ -43,7 +43,9 @@ public class JPanelImagen extends JPanel implements Serializable
                 Graphics2D g2d = (Graphics2D)g;
                 // Dibujamos la imagen con una opacidad que nosotros la hemos puesto en el slider.
                 g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, imagenFondo.getOpacidad()));
-                g.drawImage(imageIcon.getImage(), 0, 0, null); 
+                g.drawImage(imageIcon.getImage(), 0, 0, null);
+                // Una vez que dibujamos la imagen, tenemos que volver a poner la opacidad como estaba al principio
+                // que es con el valor 1.
                 g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
             }
         }

@@ -84,15 +84,23 @@ public class ImagenFondoJPanelForm extends javax.swing.JPanel {
 
     private void jButtonAbrirRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAbrirRutaActionPerformed
         // TODO add your handling code here:
+        
         JFileChooser fileChooser = new JFileChooser();
+        // mostramos el dialogo de elegir el archivo
         int resultado = fileChooser.showOpenDialog(this);
+        // Como el usuario puede darle al dialogo: cancelar o aceptar el archivo, pues comprobamos
+        // Que el usuario selecciona un archivo y le da a ACEPTAR.
         if (resultado == JFileChooser.APPROVE_OPTION)
         {
+            // Entonces ahora seleccionamos el archivo.
             File file = fileChooser.getSelectedFile();
+            // Y escribimos la ruta del archivo en el campo de texto.
             jTextFieldRuta.setText(file.getAbsolutePath());
         }
     }//GEN-LAST:event_jButtonAbrirRutaActionPerformed
 
+    // Hacemos método publico que devuelva el valor del fichero y la opacidad
+    // de la clase ImagenFondo
     public ImagenFondo getSelectedValue()
     {
         File f = new File(jTextFieldRuta.getText());
